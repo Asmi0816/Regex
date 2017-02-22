@@ -10,4 +10,24 @@ public class RegexController
 	{
 		baseFrame = new RegexFrame(this);
 	}
+	
+	public void firstName(String name)
+	{
+		
+	}
+	
+	public void lastName(String name)
+	{
+		
+	}
+	
+	public void email(String email)
+	{
+		
+	}
+	
+	public void number(Long number)
+	{
+		
+	}
 }
