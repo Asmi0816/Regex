@@ -1,5 +1,5 @@
 package regex.controller;
-
+import java.util.regex.*;
 import regex.view.RegexFrame;
 
 public class RegexController 
@@ -11,23 +11,23 @@ public class RegexController
 		baseFrame = new RegexFrame(this);
 	}
 	
-	public void firstName(String name)
+	public boolean firstName(String name)
 	{
-		
+		return name.matches( "[a-zA-Z]*" );
 	}
 	
-	public void lastName(String name)
+	public boolean lastName(String name)
 	{
-		
+		return name.matches( "[a-zA-z]+([ '-][a-zA-Z]+)*" );
 	}
 	
-	public void email(String email)
+	public boolean email(String email)
 	{
-		
+		return email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 	}
 	
-	public void number(Long number)
+	public boolean numberChecker(String number)
 	{
-		
+		return number.matches("[0-9]+");
 	}
 }

@@ -93,41 +93,46 @@ public class RegexPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent selection)
 			{
+				//made simple variables for all the different JTextFields
 				String firstString = firstName.getText();
 				String lastString = lastName.getText();
 				String emailString = email.getText();
 				String numberString = number.getText();
 				//Pretesting the thing to make it pass or fail faster
-				if(firstString.length() > 1 && firstString.length() < 31)
+				boolean firstNameValid = baseController.firstName(firstString);
+				boolean lastNameValid = baseController.lastName(lastString);
+				boolean emailValid = baseController.email(emailString);
+				boolean numberValid = baseController.numberChecker(numberString);
+				if(firstString.length() > 1 && firstString.length() < 31 && firstNameValid)
 				{
-					baseController.firstName(firstString);
+					firstName.setBackground(Color.GREEN);
 				}
 				else
 				{
 					firstName.setBackground(Color.RED);
 				}
 				
-				if (lastString.length() > 1 && lastString.length() < 41)
+				if (lastString.length() > 1 && lastString.length() < 41 && lastNameValid)
 				{
-					baseController.lastName(lastString);
+					lastName.setBackground(Color.GREEN);
 				}
 				else
 				{
 					lastName.setBackground(Color.RED);
 				}
 				
-				if(emailString.contains("@") && emailString.contains(".") && emailString.length() > 4)
+				if(emailString.contains("@") && emailString.contains(".") && emailString.length() > 4 && emailValid)
 				{
-					baseController.email(emailString);
+					email.setBackground(Color.GREEN);
 				}
 				else
 				{
 					email.setBackground(Color.RED);
 				}
 				
-				if (numberString.length() == 10)
+				if (numberString.length() == 10 && numberValid )
 				{
-					baseController.lastName(lastString);
+					number.setBackground(Color.GREEN);
 				}
 				else
 				{
